@@ -4,5 +4,5 @@ export class Hero {
   attack: number;
   dodge: number;
   damage: number;
-  HP: number
+  HP: number;
 }

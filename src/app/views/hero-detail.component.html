@@ -1,0 +1,35 @@
+<div *ngIf="hero">
+  <h2>{{hero.name}} details</h2>
+  <div>
+    <label>id: </label>{{hero.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="hero.name" placeholder="name" />
+  </div>
+  <div>
+    <label>attack: </label>
+    <input type="number" [(ngModel)]="hero.attack" placeholder="attack" />
+  </div>
+  <div>
+    <label>dodge: </label>
+    <input type="number" [(ngModel)]="hero.dodge" placeholder="dodge" />
+  </div>
+  <div>
+    <label>damage: </label>
+    <input type="number" [(ngModel)]="hero.damage" placeholder="damage" />
+  </div>
+  <div>
+    <label>Health points: </label>
+    <input type="number" [(ngModel)]="hero.HP" placeholder="hp" />
+  </div>
+
+  <button (click)="save()">Save</button>
+  <button (click)="goBack()">Back</button>
+
+  <div *ngIf="selectedHero">
+    <h2>
+      {{selectedHero.name | uppercase}} is my hero
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+</div>

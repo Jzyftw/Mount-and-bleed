@@ -28,7 +28,28 @@ export class HeroService {
 
   //Get By Id
   getHero(id: number): Promise<Hero> {
-    return this.getHeroes()
-      .then(heroes => heroes.find(hero => hero.id === id));
+    const url = `${this.heroesUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Hero)
+      .catch(this.handleError);
   }
+
+  private headers = new Headers({'Content-Type': 'application/json'});
+
+  update(hero: Hero): Promise<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+
+    if(hero.attack + hero.dodge + hero.damage + hero.HP < 10) {
+      alert("toto");
+    }
+
+    return this.http
+      .put(url, JSON.stringify(hero), {headers: this.headers})
+      .toPromise()
+      .then(() => hero)
+      .catch(this.handleError);
+  }
+
+
 }

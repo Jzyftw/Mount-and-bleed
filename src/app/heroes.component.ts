@@ -7,13 +7,13 @@ import {Router} from "@angular/router";
 @Component(
   {
     selector: 'my-heroes',
-    templateUrl: './heroes.component.html',
-    styleUrls: ['./app.component.css'],
+    templateUrl: './views/heroes.component.html',
+    styleUrls: ['./views/css/app.component.css'],
 })
 
 
 export class HeroesComponent implements OnInit {
-  title = 'Tour of Heroes';
+  title = 'Mount and Bleed';
   heroes: Hero[];
   selectedHero: Hero;
   constructor(
