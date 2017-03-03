@@ -6,21 +6,25 @@
     <label>name: </label>
     <input [(ngModel)]="hero.name" placeholder="name" />
   </div>
+
+  <div>
+    <label>Points restants : {{ hero.points }} </label>
+  </div>
   <div>
     <label>attack: </label>
-    <input type="number" [(ngModel)]="hero.attack" placeholder="attack" />
+    <input type="number" [(ngModel)]="hero.attack" (change)="checkChar('attack')" placeholder="attack" min="1" />
   </div>
   <div>
     <label>dodge: </label>
-    <input type="number" [(ngModel)]="hero.dodge" placeholder="dodge" />
+    <input type="number" [(ngModel)]="hero.dodge" (change)="checkChar('dodge')" placeholder="dodge" min="1"/>
   </div>
   <div>
     <label>damage: </label>
-    <input type="number" [(ngModel)]="hero.damage" placeholder="damage" />
+    <input type="number" [(ngModel)]="hero.damage" (change)="checkChar('damage')" placeholder="damage" min="1"/>
   </div>
   <div>
     <label>Health points: </label>
-    <input type="number" [(ngModel)]="hero.HP" placeholder="hp" />
+    <input type="number" [(ngModel)]="hero.HP" (change)="checkChar('HP')" placeholder="hp" min="1"/>
   </div>
 
   <button (click)="save()">Save</button>
