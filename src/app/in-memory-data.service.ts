@@ -7,6 +7,13 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 13, armeId : 0, name: 'Bombasto', points:27, attack: 1, dodge : 1, damage : 1, HP: 10 },
       {id: 14, armeId : 0, name: 'Celeritas', points:27, attack: 1, dodge : 1, damage : 1, HP: 10 }
     ];
-    return {heroes};
+
+    let weapons = [
+      {id: 1, name: 'Déchireuse de l\'enfer',  attack: 7, dodge : -10, damage : 5, HP: -3 }
+    ];
+
+    return {heroes, weapons};
+
+
   }
 }

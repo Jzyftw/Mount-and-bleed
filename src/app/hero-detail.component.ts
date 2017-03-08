@@ -31,6 +31,7 @@ export class HeroDetailComponent implements OnInit {
         .then(() => this.goBack());
   }
 
+  //Gestion des caractéristiques
   checkChar(param):void {
     console.log(param);
     var chars = this.hero.damage + this.hero.attack + this.hero.HP + this.hero.dodge;

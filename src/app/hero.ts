@@ -1,6 +1,6 @@
 export class Hero {
   id: number;
-  armeId : number;
+  weaponId : number;
   points : number;
   name: string;
   attack: number;

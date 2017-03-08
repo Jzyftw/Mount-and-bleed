@@ -27,10 +27,16 @@
     <input type="number" [(ngModel)]="hero.HP" (change)="checkChar('HP')" placeholder="hp" min="1"/>
   </div>
 
+  <!--Arme -->
+  <label for="weapon">Arme : </label>
+  <select [(ngModel)]="hero.weaponId">
+    <option value="" selected>Aucune arme</option>
+    <option *ngFor="let weapon of weapons" [value]="weapon.id">{{weapon.name}}</option>
+  </select>
+
   <button (click)="save()">Save</button>
   <button (click)="goBack()">Back</button>
-
-  <div *ngIf="selectedHero">
+  <div *ngIf="selectedHero" id="weapon">
     <h2>
       {{selectedHero.name | uppercase}} is my hero
     </h2>

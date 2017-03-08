@@ -15,6 +15,8 @@ import { HeroesComponent }      from './heroes.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroService }          from './hero.service';
 import {HeroSearchComponent} from "./views/hero-search.component";
+import {WeaponsComponent} from "./weapons.component";
+import {WeaponService} from "./weapon.service";
 
 @NgModule({
   imports: [
@@ -30,8 +32,9 @@ import {HeroSearchComponent} from "./views/hero-search.component";
     HeroDetailComponent,
     HeroesComponent,
     HeroSearchComponent,
+    WeaponsComponent,
   ],
-  providers: [ HeroService ],
+  providers: [ HeroService, WeaponService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

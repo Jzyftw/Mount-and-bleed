@@ -4,7 +4,6 @@ import { Component } from '@angular/core';
     selector: 'app-root',
     templateUrl: './views/app.component.html',
     styleUrls: ['./views/css/app.component.css'],
-    //providers: [HeroService]
 })
 
 

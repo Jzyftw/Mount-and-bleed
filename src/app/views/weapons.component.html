@@ -1,0 +1,10 @@
+<ul class="weapons">
+  <li *ngFor="let weapon of weapons" (click)="onSelect(weapon)"
+      [class.selected]="weapon === selectedWeapon">
+    <span class="badge">{{weapon.id}}</span>
+    <span>{{weapon.name}}</span>
+    <button class="delete"
+            (click)="delete(weapon); $event.stopPropagation()">x</button>
+  </li>
+
+</ul>
