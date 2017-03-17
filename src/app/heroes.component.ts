@@ -37,6 +37,11 @@ export class HeroesComponent implements OnInit {
     if (!name) { return; }
     this.heroService.create(name)
       .then(hero => {
+        hero.points = 36;
+        hero.attack = 1;
+        hero.HP = 1;
+        hero.dodge = 1;
+        hero.damage = 1;
         this.heroes.push(hero);
         this.selectedHero = null;
       });
