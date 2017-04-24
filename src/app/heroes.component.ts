@@ -29,6 +29,7 @@ export class HeroesComponent implements OnInit {
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
+
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
@@ -37,15 +38,29 @@ export class HeroesComponent implements OnInit {
     if (!name) { return; }
     this.heroService.create(name)
       .then(hero => {
-        hero.points = 36;
-        hero.attack = 1;
-        hero.HP = 1;
-        hero.dodge = 1;
-        hero.damage = 1;
         this.heroes.push(hero);
         this.selectedHero = null;
       });
   }
+
+  /**
+   * Tri des héros par points de vie
+   */
+  sortbyHP() : void {
+    this.heroes.sort(function (a, b){return a.HP - b.HP});
+  }
+
+  /**
+   * Tri des héros par attaque
+   */
+  sortbyAttack(): void {
+    this.heroes.sort(function (a, b){return a.attack - b.attack});
+  }
+
+  /**
+   * Suppression du héros passé en paramètre
+   * @param hero
+   */
   delete(hero: Hero): void {
     this.heroService
       .delete(hero.id)

@@ -1,37 +1,52 @@
+body {
+  /*background-color: #336699!important;*/
+  background-image : url("http://vignette3.wikia.nocookie.net/steamtradingcards/images/f/fe/Chivalry_Medieval_Warfare_Background_Siege.jpg/revision/latest?cb=20141103015853")!important;
+}
+
 .selected {
-  background-color: #CFD8DC !important;
+  /*background-color: #CFD8DC !important;*/
   color: white;
 }
-.heroes {
+
+.tri{
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
+nav {
+  padding-bottom: 10px;
+}
+
+.heroes, .weapons {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-.heroes li {
+.heroes li, .weapons li {
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
+  /*background-color: #EEE;*/
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
   border-radius: 4px;
 }
-.heroes li.selected:hover {
-  background-color: #BBD8DC !important;
+.heroes li.selected:hover, .weapons li.selected:hover{
+  /*background-color: #BBD8DC !important;*/
   color: white;
 }
-.heroes li:hover {
+.heroes li:hover, .weapons li.hover {
   color: #607D8B;
-  background-color: #DDD;
+  /*background-color: #DDD;*/
   left: .1em;
 }
-.heroes .text {
+.heroes .text, .weapons .text {
   position: relative;
   top: -3px;
 }
-.heroes .badge {
+.heroes .badge, .weapons .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -42,9 +57,11 @@
   left: -1px;
   top: -4px;
   height: 1.8em;
-  margin-right: .8em;
+
   border-radius: 4px 0 0 4px;
 }
+
+
 
 button.delete {
   float:right;
@@ -53,3 +70,5 @@ button.delete {
   background-color: gray !important;
   color:white;
 }
+
+

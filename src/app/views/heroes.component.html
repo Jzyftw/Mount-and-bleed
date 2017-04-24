@@ -1,10 +1,15 @@
 <div>
-  <label>Hero name:</label> <input #heroName />
+  <label>Ajouter un héros :</label> <input #heroName />
   <button (click)="add(heroName.value); heroName.value=''">
-    Add
+    Ok
   </button>
 </div>
 
+<div class="tri">
+  Trier par :
+  <button (click)="sortbyHP()">Points de vie croissants </button>
+  <button (click)="sortbyAttack()">Attaque croissante</button>
+</div>
 
 <ul class="heroes">
   <li *ngFor="let hero of heroes" (click)="onSelect(hero)"
@@ -14,7 +19,6 @@
     <button class="delete"
             (click)="delete(hero); $event.stopPropagation()">x</button>
   </li>
-
 </ul>
 
 

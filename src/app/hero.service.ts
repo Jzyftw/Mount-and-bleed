@@ -28,7 +28,11 @@ export class HeroService {
     return Promise.reject(error.message || error);
   }
 
-  //Get By Id
+  /**
+   * Get a hero using ID
+   * @param id
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
   getHero(id: number): Promise<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get(url)
@@ -39,6 +43,11 @@ export class HeroService {
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
+  /**
+   * Updates the hero passed in param
+   * @param hero
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
   update(hero: Hero): Promise<Hero> {
     const url = `${this.heroesUrl}/${hero.id}`;
     return this.http
@@ -50,7 +59,7 @@ export class HeroService {
 
   create(name: string): Promise<Hero> {
     return this.http
-      .post(this.heroesUrl, JSON.stringify({name: name}), {headers: this.headers})
+      .post(this.heroesUrl, JSON.stringify({name: name, points: 27, attack: 1, dodge: 1, damage: 1, HP: 10}), {headers: this.headers})
       .toPromise()
       .then(res => res.json().data)
       .catch(this.handleError);

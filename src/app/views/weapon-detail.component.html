@@ -1,0 +1,39 @@
+<div *ngIf="weapon">
+  <h2>{{weapon.name}} details</h2>
+  <div>
+    <label>id: </label>{{weapon.id}}</div>
+  <div>
+    <label>name: </label>
+    <input [(ngModel)]="weapon.name" placeholder="name" />
+  </div>
+
+  <div>
+    <label> Points restants : {{ points }} </label>
+  </div>
+
+  <div>
+    <label>attack: </label>
+    <input type="number" [(ngModel)]="weapon.attack" (change)="checkChar()" placeholder="attack" min="-5" max="5" />
+  </div>
+  <div>
+    <label>dodge: </label>
+    <input type="number" [(ngModel)]="weapon.dodge" (change)="checkChar()" placeholder="dodge" min="-5" max="5"/>
+  </div>
+  <div>
+    <label>damage: </label>
+    <input type="number" [(ngModel)]="weapon.damage" (change)="checkChar()" placeholder="damage" min="-5" max="5"/>
+  </div>
+  <div>
+    <label>Health points: </label>
+    <input type="number" [(ngModel)]="weapon.HP" (change)="checkChar()" placeholder="hp" min="-5" max="5"/>
+  </div>
+
+  <button (click)="save()">Save</button>
+  <button (click)="goBack()">Back</button>
+  <div *ngIf="selectedHero" id="weapon">
+    <h2>
+      {{selectedWeapon.name | uppercase}} is my weapon
+    </h2>
+    <button (click)="gotoDetail()">View Details</button>
+  </div>
+</div>

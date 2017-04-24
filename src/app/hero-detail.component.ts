@@ -25,6 +25,9 @@ export class HeroDetailComponent implements OnInit {
     private location: Location
   ) {}
 
+  /*
+  Initializes parameters for the component
+   */
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.heroService.getHero(+params['id']))
@@ -32,12 +35,17 @@ export class HeroDetailComponent implements OnInit {
     this.getWeapons();
   }
 
+  /*
+  Saves the current stats of a hero
+   */
   save(): void {
       this.heroService.update(this.hero)
         .then(() => this.goBack());
   }
 
-  //Gestion des caractéristiques
+  /*
+  Characteristics check
+   */
   checkChar(param):void {
     console.log(param);
     var chars = this.hero.damage + this.hero.attack + this.hero.HP + this.hero.dodge;

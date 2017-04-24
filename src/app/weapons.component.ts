@@ -12,6 +12,7 @@ import {Router} from "@angular/router";
 
 export class WeaponsComponent implements OnInit {
   weapons: Weapon[];
+  selectedWeapon: Weapon;
 
   constructor(
     private router: Router,
@@ -22,5 +23,36 @@ export class WeaponsComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getWeapons();
+  }
+
+  onSelect(weapon: Weapon): void {
+    this.selectedWeapon = weapon;
+  }
+
+  gotoDetail(): void {
+    this.router.navigate(['/weaponDetail', this.selectedWeapon.id]);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.weaponService.create(name)
+      .then(weapon => {
+        weapon.attack = 1;
+        weapon.HP = 1;
+        weapon.dodge = 1;
+        weapon.damage = 1;
+        this.weapons.push(weapon);
+        this.selectedWeapon = null;
+      });
+  }
+
+  delete(weapon: Weapon): void {
+    this.weaponService
+      .delete(weapon.id)
+      .then(() => {
+        this.weapons = this.weapons.filter(w => w !== weapon);
+        if (this.selectedWeapon === weapon) { this.selectedWeapon = null; }
+      });
   }
 };

@@ -20,6 +20,19 @@ export class WeaponService {
       .catch(this.handleError);
   }
 
+  /**
+   * Get a hero using ID
+   * @param id
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
+  getWeapon(id: number): Promise<Weapon> {
+    const url = `${this.weaponsUrl}/${id}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => response.json().data as Weapon)
+      .catch(this.handleError);
+  }
+
   private handleError(error: any): Promise<any> {
     console.error('An error occurred', error); // for demo purposes only
     return Promise.reject(error.message || error);
