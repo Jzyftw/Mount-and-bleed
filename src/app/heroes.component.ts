@@ -30,6 +30,10 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  /**
+   * Accès au détails d'un héros
+   */
+
   gotoDetail(): void {
     this.router.navigate(['/detail', this.selectedHero.id]);
   }
@@ -47,14 +51,21 @@ export class HeroesComponent implements OnInit {
    * Tri des héros par points de vie
    */
   sortbyHP() : void {
-    this.heroes.sort(function (a, b){return a.HP - b.HP});
+    this.heroes.sort(function (a, b){return b.HP - a.HP});
   }
 
   /**
    * Tri des héros par attaque
    */
   sortbyAttack(): void {
-    this.heroes.sort(function (a, b){return a.attack - b.attack});
+    this.heroes.sort(function (a, b){return b.attack - a.attack});
+  }
+
+  /**
+   * Tri des héros par esquive
+   */
+  sortbyDodge(): void {
+    this.heroes.sort(function (a, b){return b.dodge - a.dodge});
   }
 
   /**

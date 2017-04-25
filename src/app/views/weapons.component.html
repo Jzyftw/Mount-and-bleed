@@ -5,6 +5,13 @@
   </button>
 </div>
 
+<div class="tri">
+  Trier par :
+  <button (click)="sortbyHP()">Points de vie </button>
+  <button (click)="sortbyAttack()">Attaque </button>
+  <button (click)="sortbyDodge()">Esquive </button>
+</div>
+
 <ul class="weapons">
   <li *ngFor="let weapon of weapons" (click)="onSelect(weapon)"
       [class.selected]="weapon === selectedWeapon">

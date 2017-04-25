@@ -25,22 +25,25 @@ export class WeaponDetailComponent implements OnInit {
     private location: Location
   ) {}
 
+  /**
+   * Life cycle hook
+   */
   ngOnInit(): void {
     this.route.params
       .switchMap((params: Params) => this.weaponService.getWeapon(+params['id']))
       .subscribe(weapon => this.weapon = weapon);
   }
 
-  /*
-   Characteristics check
+  /**
+   * Somme des caractéristiques
    */
   checkChar():void {
     var chars = this.weapon.HP + this.weapon.attack + this.weapon.damage + this.weapon.dodge;
     this.points = chars;
   }
 
-  /*
-   Saves the current stats of a weapon
+  /**
+   * Enregistre l'état courant d'une arme
    */
   save(): void {
     if(this.points == 0){
@@ -52,6 +55,9 @@ export class WeaponDetailComponent implements OnInit {
     }
   }
 
+  /**
+   * Retour en arrière
+   */
   goBack(): void {
     this.location.back();
   }

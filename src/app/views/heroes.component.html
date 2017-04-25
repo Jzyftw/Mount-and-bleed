@@ -1,5 +1,5 @@
 <div>
-  <label>Ajouter un héros :</label> <input #heroName />
+  <label>Ajouter :</label> <input #heroName />
   <button (click)="add(heroName.value); heroName.value=''">
     Ok
   </button>
@@ -7,8 +7,9 @@
 
 <div class="tri">
   Trier par :
-  <button (click)="sortbyHP()">Points de vie croissants </button>
-  <button (click)="sortbyAttack()">Attaque croissante</button>
+  <button (click)="sortbyHP()">Points de vie </button>
+  <button (click)="sortbyAttack()">Attaque </button>
+  <button (click)="sortbyDodge()">Esquive </button>
 </div>
 
 <ul class="heroes">
@@ -24,7 +25,7 @@
 
 <div *ngIf="selectedHero">
   <h2>
-    {{selectedHero.name | uppercase}} is my hero
+    {{selectedHero.name | uppercase}}
   </h2>
-  <button (click)="gotoDetail()">View Details</button>
+  <button (click)="gotoDetail()">Détails</button>
 </div>

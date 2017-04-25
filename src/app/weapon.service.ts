@@ -13,6 +13,10 @@ export class WeaponService {
 
   constructor(private http: Http) { }
 
+  /**
+   * Renvoie un tableau contenant les armes sous forme de promise
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
   getWeapons(): Promise<Weapon[]> {
     return this.http.get(this.weaponsUrl)
       .toPromise()
@@ -21,7 +25,7 @@ export class WeaponService {
   }
 
   /**
-   * Get a hero using ID
+   * Renvoie l'arme dont l'id est passé en paramètre sous forme de promise
    * @param id
    * @returns {Promise<R>|Promise<Promise<any>>}
    */
@@ -33,13 +37,23 @@ export class WeaponService {
       .catch(this.handleError);
   }
 
+  /**
+   * En cas d'erreur, l'affiche en console et annule la promise
+   * @param error
+   * @returns {Promise<void>|Promise<T>}
+   */
   private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
+    console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
 
   private headers = new Headers({'Content-Type': 'application/json'});
 
+  /**
+   * Mise à jour des carac. de l'arme passée en paramètre, renvoie l'arme mise à jour sous forme de promise
+   * @param weapon
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
   update(weapon: Weapon): Promise<Weapon> {
     const url = `${this.weaponsUrl}/${weapon.id}`;
     return this.http
@@ -49,6 +63,11 @@ export class WeaponService {
       .catch(this.handleError);
   }
 
+  /**
+   * Crée une arme dont le nom est passé en paramètre
+   * @param name
+   * @returns {Promise<R>|Promise<Promise<any>>}
+   */
   create(name: string): Promise<Weapon> {
     return this.http
       .post(this.weaponsUrl, JSON.stringify({name: name}), {headers: this.headers})
@@ -56,6 +75,7 @@ export class WeaponService {
       .then(res => res.json().data)
       .catch(this.handleError);
   }
+
 
   delete(id: number): Promise<void> {
     const url = `${this.weaponsUrl}/${id}`;

@@ -1,7 +1,3 @@
-body {
-  /*background-color: #336699!important;*/
-  background-image : url("http://vignette3.wikia.nocookie.net/steamtradingcards/images/f/fe/Chivalry_Medieval_Warfare_Background_Siege.jpg/revision/latest?cb=20141103015853")!important;
-}
 
 .selected {
   /*background-color: #CFD8DC !important;*/
@@ -17,7 +13,15 @@ nav {
   padding-bottom: 10px;
 }
 
+div .search-result {
+  margin-left: auto!important;
+  margin-right: auto!important;
+}
+
 .heroes, .weapons {
+  margin-left: auto!important;
+  margin-right: auto!important;
+  text-align: justify;
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
@@ -27,19 +31,18 @@ nav {
   cursor: pointer;
   position: relative;
   left: 0;
-  /*background-color: #EEE;*/
+  background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
   height: 1.6em;
-  border-radius: 4px;
 }
 .heroes li.selected:hover, .weapons li.selected:hover{
-  /*background-color: #BBD8DC !important;*/
+  background-color: #BBD8DC !important;
   color: white;
 }
 .heroes li:hover, .weapons li.hover {
   color: #607D8B;
-  /*background-color: #DDD;*/
+  background-color: #DDD;
   left: .1em;
 }
 .heroes .text, .weapons .text {
@@ -60,6 +63,7 @@ nav {
 
   border-radius: 4px 0 0 4px;
 }
+
 
 
 

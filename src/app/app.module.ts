@@ -14,7 +14,7 @@ import { DashboardComponent }   from './dashboard.component';
 import { HeroesComponent }      from './heroes.component';
 import { HeroDetailComponent }  from './hero-detail.component';
 import { HeroService }          from './hero.service';
-import {HeroSearchComponent} from "./views/hero-search.component";
+import {HeroSearchComponent} from "./hero-search.component";
 import {WeaponsComponent} from "./weapons.component";
 import {WeaponService} from "./weapon.service";
 import {WeaponDetailComponent} from "./weapon-detail.component";

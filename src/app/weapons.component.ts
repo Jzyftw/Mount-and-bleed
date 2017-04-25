@@ -18,21 +18,60 @@ export class WeaponsComponent implements OnInit {
     private router: Router,
     private weaponService: WeaponService) { }
 
-  getWeapons(): void {
-    this.weaponService.getWeapons().then(weapons => this.weapons = weapons);
-  }
+  /**
+   * Life cycle hook
+   */
   ngOnInit(): void {
     this.getWeapons();
   }
 
+  /**
+   * Tri des héros par points de vie
+   */
+  sortbyHP() : void {
+    this.weapons.sort(function (a, b){return b.HP - a.HP});
+  }
+
+  /**
+   * Tri des héros par attaque
+   */
+  sortbyAttack(): void {
+    this.weapons.sort(function (a, b){return b.attack - a.attack});
+  }
+
+  /**
+   * Tri des héros par esquive
+   */
+  sortbyDodge(): void {
+    this.weapons.sort(function (a, b){return b.dodge - a.dodge});
+  }
+
+  /**
+   * Permet de récupérer les armes
+   */
+  getWeapons(): void {
+    this.weaponService.getWeapons().then(weapons => this.weapons = weapons);
+  }
+
+  /**
+   * Définit l'arme passée en param comme arme sélectionnée
+   * @param weapon
+   */
   onSelect(weapon: Weapon): void {
     this.selectedWeapon = weapon;
   }
 
+  /**
+   * Voir détail de l'arme sélectionnée
+   */
   gotoDetail(): void {
     this.router.navigate(['/weaponDetail', this.selectedWeapon.id]);
   }
 
+  /**
+   * Crée une arme dont le nom est passé en paramètre
+   * @param name
+   */
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
@@ -47,6 +86,10 @@ export class WeaponsComponent implements OnInit {
       });
   }
 
+  /**
+   * Supprime une arme dont le nom est passé en param
+   * @param weapon
+   */
   delete(weapon: Weapon): void {
     this.weaponService
       .delete(weapon.id)

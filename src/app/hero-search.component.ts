@@ -8,13 +8,13 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/distinctUntilChanged';
-import { HeroSearchService } from '../hero-search.service';
-import { Hero } from '../hero';
+import { HeroSearchService } from './hero-search.service';
+import { Hero } from './hero';
 @Component({
   moduleId: module.id,
   selector: 'hero-search',
-  templateUrl: './hero-search.component.html',
-  styleUrls: [ './css/hero-search.component.css' ],
+  templateUrl: './views/hero-search.component.html',
+  styleUrls: [ './views/css/hero-search.component.css' ],
   providers: [HeroSearchService]
 })
 export class HeroSearchComponent implements OnInit {
@@ -23,10 +23,14 @@ export class HeroSearchComponent implements OnInit {
   constructor(
     private heroSearchService: HeroSearchService,
     private router: Router) {}
+
+
   // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
   }
+
+
   ngOnInit(): void {
     this.heroes = this.searchTerms
       .debounceTime(50)        // wait 300ms after each keystroke before considering the term
